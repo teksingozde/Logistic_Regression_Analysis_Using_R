@@ -11,6 +11,7 @@ Odds (from differences) and odds ratio when interpreting the coefficients in the
 The variables are decided by interpreting the likelihood ratios and Wald statistics. One of the criticisms brought to logistic regression is that as the number of variables increases, it becomes difficult to build a model it is difficult. In other words, as the number of variables increases, the operation to be performed increases. Such transactions doing it is not as easy as it seems. In addition, an increase in the number of variables is predicted. It also causes the standard errors to be high. This is the main dataset increases its dependency.
 
 Logistic Regression Model;
+
 <img width="250" alt="Screen Shot 2023-05-23 at 8 06 25 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/055b8f3e-e3bd-4be9-a543-a7a0bd586e36">
 
 Since the parameters of the logistic regression model cannot be obtained analytically, an alternative as a method, estimation with the maximum likelihood (Maximum Likelihood=ML) technique is being done.
