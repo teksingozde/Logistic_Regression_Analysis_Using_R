@@ -1,0 +1,47 @@
+#Binary Logistic Regression
+
+# Model 
+binary <- read_excel("~/Desktop/Logistic Regression Project/binary.xlsx")
+View(binary)                                                                           
+binary$DM <- factor(binary$DM)
+set.seed(01)
+ind<- sample(2, nrow(binary), replace = TRUE, prob= c(0.8,2))
+tdata <- binary[ind==1,]
+vdata <- binary[ind==2,]
+mylogit <- glm(ME ~ HDL+DM+YAS, data = binary, family = "binomial")
+summary(mylogit)
+
+## Model 2
+exp(cbind(ExpB = coef(mylogit), confint(mylogit)))
+
+## Model 3
+(ctable <- coef(summary(mylogit)))
+(ctable <- cbind(ctable, "p value"))
+
+# Hosmer Lemeshow Test
+library(ResourceSelection)
+hoslem.test(binary$ME, fitted(mylogit), g=10)
+
+# Hosmer Lemeshow C and H Statistics Test
+library(MKclass)
+HLgof.test(fit=fitted(mylogit), obs = binary$ME)
+
+# Likelihood Ratio
+library(lmtest)
+lrtest(mylogit)
+
+# Pseudo R2 
+library(pscl)
+pR2(mylogit)
+
+# All Pseudo R2
+library(DescTools)
+PseudoR2(mylogit,which = "all")
+
+# Wald Test
+library(lmtest)
+waldtest(mylogit, test = "Chisq")
+
+# Classification Table
+predict <- predict(mylogit, type = "response")
+table(binary$ME, predict>0.5)
