@@ -46,5 +46,101 @@ Ordinal logistic regression; cause and effect between the dependent variable and
 To determine the cause and effect relationship between the dependent variable and the independent variables works. Independent variables can be categorical or continuous variables. Covariate entering the model it should be continuous. Separate estimates for each category for categorical variables is done.
 
 ### 4. Analysis Process
+#### 4.1. Binary Logistic Regression Analysis
+##### 4.1.1. Model
+
+<img width="550" alt="Model1" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/55a7b98a-8744-421c-9662-dac2d31001b8">
+
+<img width="500" alt="Model2" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/417e200e-28d8-419c-959f-9502f558b3b1">
+
+Since the p values for the variables in the table are greater than 0.05, the effect of the variables on the formation of ME cannot be measured. Confidence intervals are also shown.
+
+The coefficients of the variables in the model, standard errors of these coefficients, levels of significance, and exp(β) statistics are given in the table.
+
+According to the table HDL sig. value (0.00944<0.05 has an effect on the formation of ME disease. Patients with HDL are 0.97 times more likely to have ME disease than those without. DM1 sig. value (3.82e-06<0.05), it has an effect on the formation of ME disease. Patients with DM1 are 12,227 times more likely to develop ME than those without.
+Since the AGE variable is (0.26>0.05), it has no effect on the occurrence of ME.
+
+Model;
+It is written as Z= -1.81-0.025HDL+2.50DM1+0.026AGE.
+
+According to the values of age=60, HDL=24 and DM=1 taken from the table, the probability of a person to have ME is;
+L=ln(P/1-P)= -1.81-0.025*1+2.52*24+0.026*60
+    = 60.205
+
+<img width="200" alt="Screen Shot 2023-07-09 at 5 36 23 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/f6e42e0a-36e5-4489-84d1-eddf1707dda6">
+
+Therefore, the person with age=60, HDL=24 and DM=1 has ME.
+
+##### 4.1.2. Hosmer Lemeshow Test
+
+<img width="500" alt="Hosmer_Lemeshow_Test" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/fe4cb67a-ecc7-4263-bf91-ea6427d8de93">
+
+The Hosmer lemeshow χ2 goodness-of-fit test evaluates the fit of the logistic regression model as a whole. It is much more powerful than the traditional χ2 test, especially when the independent variables are continuous variables or when working with small samples. Hosmer lemeshow is a more powerful alternative to omnibus testing. If the result of this test is not significant, a p value greater than 0.05 indicates that the model-data fit is sufficient.
+
+Ho: The model satisfies the condition of goodness of fit.
+H1: The model does not meet the condition of goodness of fit.
+
+Since p=0.06845>0.05, the model satisfies the condition of goodness of fit.
+
+##### 4.1.3. Hosmer Lemeshow Test II
+
+<img width="500" alt="Hosmer_Lemeshow_Test2" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/97b54bbb-13af-4b09-9ec4-8606f33c4118">
+
+Ho: The model satisfies the condition of goodness of fit.
+H1: The model does not meet the condition of goodness of fit.
+
+Since p=0.4072>0.05, the model satisfies the condition of goodness of fit.
+
+##### 4.1.4. Likelihood Ratio Test
+
+<img width="500" alt="Likelihood_Ratio" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/32236492-5221-4721-85bf-4af7cd574625">
+
+When the value obtained in the likelihood ratio test is small, it indicates that the variables added to the model do not make a significant contribution to the logit estimation and the variables do not need to be included in the model. Looking at the table, the likelihood ratio test result is 35.463, which is a high value. In short, the values added to the model make an important contribution to the logit estimation.
+
+##### 4.1.5. Pseudo R2
+
+<img width="600" alt="Pseudo_R2" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/d8bfac51-2e1f-4ee0-9ce2-94ea9418a84a">
+
+McFadden likelihood ratio test, the log likelihood of the model with no independent variables and only the constant can be considered as the sum of squares, and the log likelihood of the model with the independent variables can now be considered as the sum of squares. Since McFadden R2 tends to take very small values compared to R2 obtained in multiple linear regression, it can be said that a value between 0.20 and 0.40 is very high. The value is high because the McFadden R2 value is 0.28.
+
+Independent variables explain 43.4% of the total change in the dependent variable, according to Nagelkerke.
+
+Independent variables explain 32.5% of the total change in the dependent variable, according to Cox Snell.
+
+##### 4.1.6. Wald Test
+
+<img width="550" alt="Wald_Testi" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/d2f6db7b-4229-4ae5-b190-ad3c9234efb6">
+
+One of the methods that tests the significance of the model is the wald statistics. Wald statistic also determines whether the coefficients of the independent variables are significant or not.
+
+As a result, the relationship between ME and logit was found to be linear. (Wald=25.312, p=1.329e-05)
+
+##### 4.1.7. Classification Table
+
+<img width="250" alt="Classification_Table" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/7661b14a-0288-4073-ae47-0d69c58b2ad2">
+
+According to the table, 0.50 is given as cutoff point and classification is made with the help of estimated probabilities. Over 50% are assigned to group 1, those below 50% are assigned to group 0.
+Thirty-four, or 79%, of 43 people without ME were classified correctly, and 9 out of 43, or 20%, were misclassified.
+Of the 47 people with ME, 10, that is, 21%, were classified incorrectly, and 37 of the 47 people, that is, 79%, were classified correctly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
