@@ -42,7 +42,7 @@ There is no need to calculate the maximum likelihood estimation in the score tes
 ### 2. Ordinal Logistic Regression Analysis
 Ordinal logistic regression; cause and effect between the dependent variable and the independent variables tries to determine the relationship. Ordinal scale with at least three categories of dependent variable it is a method used in data. In ordinal logistic regression, the independent variables can be categorical or continuous. Only the covariate entering the model should be continuous. For categorical variables, each estimates are made separately for each category.
 
-### 3. Multinomial Logistic Regression
+### 3. Multinomial Logistic Regression Analysis
 To determine the cause and effect relationship between the dependent variable and the independent variables works. Independent variables can be categorical or continuous variables. Covariate entering the model it should be continuous. Separate estimates for each category for categorical variables is done.
 
 ### 4. Analysis Process
@@ -121,7 +121,59 @@ As a result, the relationship between ME and logit was found to be linear. (Wald
 
 According to the table, 0.50 is given as cutoff point and classification is made with the help of estimated probabilities. Over 50% are assigned to group 1, those below 50% are assigned to group 0.
 Thirty-four, or 79%, of 43 people without ME were classified correctly, and 9 out of 43, or 20%, were misclassified.
-Of the 47 people with ME, 10, that is, 21%, were classified incorrectly, and 37 of the 47 people, that is, 79%, were classified correctly.
+Of the 47 people with ME 10, that is 21%, were classified incorrectly, and 37 of the 47 people that is, 79%, were classified correctly.
+
+#### 4.2. Ordinal Logistic Regression Analysis
+##### 4.2.1. Model
+
+<img width="500" alt="Screen Shot 2023-07-06 at 7 29 38 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/e7058a4a-45d4-4ff1-97fd-81476601f4d6">
+
+The coefficients of the variables in the model, standard errors of these coefficients, levels of significance, and exp(β) statistics are given in the table.
+
+According to the table X1 sig. value (0.46>0.05), X1 has no effect on Y disease.
+X3 sig. value (0.61>0.05), it has no effect on Y disease.
+Since the X4 variable is (0.35>0.05), it has no effect on disease Y.
+
+Since the variable X2 is a categorical variable, its probabilities are also given in the table.
+
+##### 4.2.2. Likelihood Ratio Test
+
+<img width="500" alt="Screen Shot 2023-07-06 at 7 36 52 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/e1be1253-9765-4506-ac44-84a67430e6c9">
+
+When the value obtained in the likelihood ratio test is small, it indicates that the variables added to the model do not make a significant contribution to the logit estimation and the variables do not need to be included in the model.
+
+Since p=0.005<0.05, the model does not meet the goodness-of-fit condition. The coefficients do not contribute to the estimation of Y.
+
+##### 4.2.3. Pseudo R2
+
+<img width="550" alt="Screen Shot 2023-07-06 at 7 39 28 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/7e0e5a40-daf3-47f7-83c7-f6f2dae0b3ee">
+
+McFadden likelihood ratio test, the log likelihood of the model with no independent variables and only the constant can be considered as the sum of squares, and the log likelihood of the model with the independent variables can now be considered as the sum of squares. Since McFadden R2 tends to take very small values compared to R2 obtained in multiple linear regression, it can be said that a value between 0.20 and 0.40 is very high. Since the McFadden likelihood ratio test result in the table is 0.0042, the value cannot be said to be high.
+
+##### 4.2.4. Wald Test
+
+<img width="350" alt="Screen Shot 2023-07-06 at 7 47 00 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/90969153-57e4-482d-86dc-c06ebc3cc777">
+
+One of the methods that tests the significance of the model is the wald statistics. Wald statistic also determines whether the coefficients of the independent variables are significant or not.
+As a result, the relationship between variable Y and logit was not found to be linear. In short, the coefficient is not significant. (Wald=2.399, p=0.9345)
+
+##### 4.2.5. Classification Table
+
+<img width="500" alt="Screen Shot 2023-07-06 at 7 59 52 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/73a33ae3-b510-4010-b0e2-d47b8c6013d2">
+
+Variable Y has 7 values from 2 (very severe), 12 values from 1 (moderate) and 9 values from 0 (less severe).
+
+There are 5 out of 5, 6 out of 4, 8 out of 3, 7 out of 2, and 2 out of 1 in the variable X2.
+
+The classification percentages of the classification table are also shown in the table.
+
+
+
+
+
+
+
+
 
 
 
