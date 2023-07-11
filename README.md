@@ -167,12 +167,53 @@ There are 5 out of 5, 6 out of 4, 8 out of 3, 7 out of 2, and 2 out of 1 in the 
 
 The classification percentages of the classification table are also shown in the table.
 
+#### 4.3. Multinomial Logistic Regression Analysis
+##### 4.3.1. Model 
 
+<img width="400" alt="Screen Shot 2023-07-06 at 4 43 49 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/2a88dd46-79d0-44f1-b097-38380fbde721">
 
+<img width="650" alt="Screen Shot 2023-07-06 at 4 45 17 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/f40233ae-d183-4bfe-babb-65bf146c8a38">
 
+<img width="591" alt="Screen Shot 2023-07-06 at 4 44 08 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/99e9336a-69d0-418d-8635-5736faded0c6">
 
+The model coefficients of the model are found in the table.
 
+##### 4.3.2. Omnibus Anova Table
 
+<img width="700" alt="Screen Shot 2023-07-06 at 4 47 34 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/79aecda5-cbf0-4145-b07c-6081f4bce2f4">
+
+In this table, the goodness of fit of the model is mentioned and the analysis of whether the coefficients of the independent variables of the model are significant or not.
+In the model of disease A, all variable coefficients are insignificant except for the variable X16.
+In the model of disease B, all variable coefficients are insignificant except for the variable X13.
+
+##### 4.3.3. Confidence Intervals
+
+<img width="400" alt="Screen Shot 2023-07-06 at 4 49 19 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/d6d64e28-48ef-4cd3-b5dd-26ebe6916ba0">
+
+Confidence intervals of variables belonging to disease A and B are shown in the table.
+
+##### 4.3.4. Likelihood Ratio Test
+
+<img width="400" alt="Screen Shot 2023-07-06 at 4 50 43 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/cf586b50-f776-4a9f-a72f-774b51889076">
+
+When the value obtained in the likelihood ratio test is small, it indicates that the variables added to the model do not make a significant contribution to the logit estimation and the variables do not need to be included in the model.
+
+Since p=0.18>0.05, the model does not meet the condition of goodness of fit. The model coefficients are not significant. The coefficients do not contribute to the estimation of Y.
+
+##### 4.3.5. Pseudo R2
+
+<img width="600" alt="Screen Shot 2023-07-06 at 4 51 53 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/04e1a7c5-5f19-4f6f-9eae-891e50ed4bad">
+
+McFadden likelihood ratio test, the log likelihood of the model with no independent variables and only the constant can be considered as the sum of squares, and the log likelihood of the model with the independent variables can now be considered as the sum of squares. Since McFadden R2 tends to take very small values compared to R2 obtained in multiple linear regression, it can be said that a value between 0.20 and 0.40 is very high. Since the McFadden likelihood ratio test result in the table is 0.09, the value cannot be said to be high.
+
+##### 4.3.6. Wald Test
+
+<img width="400" alt="Screen Shot 2023-07-06 at 4 52 53 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/555f2db3-49aa-4721-9fcc-68df409d49ab">
+
+<img width="609" alt="Screen Shot 2023-07-06 at 5 03 29 PM" src="https://github.com/teksingozde/Logistic_Regression_Analysis_Using_R/assets/26927158/dbb7129d-e209-4bae-ae96-787ee099628f">
+
+One of the methods that tests the significance of the model is the wald statistics. Wald statistic also determines whether the coefficients of the independent variables are significant or not.
+Despite the significance values found in the model, the wald test values were found to be significant.
 
 
 
